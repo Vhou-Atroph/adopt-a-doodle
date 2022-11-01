@@ -1,5 +1,6 @@
 use pyo3::prelude::*;
 
+/// A Doodle is a species that hails from Doodlevania, an area outside of Toontown owned by Deedle von Doodlesworth. Many are kept as pets by Toons, and you can adopt them at a pet shop.
 #[pyclass]
 struct Doodle {
     #[pyo3(get,set)]
