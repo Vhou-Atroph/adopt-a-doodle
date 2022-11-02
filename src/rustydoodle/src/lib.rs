@@ -18,6 +18,16 @@ struct Doodle {
 #[derive(Clone)]
 struct Color(f32,f32,f32,f32);
 
+#[pymethods]
+impl Color {
+
+    /// Creates a new Color tuple struct.
+    #[new]
+    fn new(r:f32,g:f32,b:f32,a:f32) -> Self {
+        Self(r,g,b,a)
+    }
+}
+
 /// A pattern that a Doodle may have.
 #[pyclass]
 #[derive(Clone)]
