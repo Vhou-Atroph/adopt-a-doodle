@@ -36,7 +36,7 @@ struct Animation {
     #[pyo3(get,set)]
     loop_restart: Option<u64>,
     #[pyo3(get,set)]
-    pose: bool,
+    pose: bool, // takes priority over anim_loop - if this is set to true then the actor will be stuck in a pose.
     #[pyo3(get,set)]
     pose_frame: Option<u64>
 }
