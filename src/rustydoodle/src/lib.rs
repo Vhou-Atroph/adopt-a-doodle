@@ -6,6 +6,8 @@ struct Doodle {
     #[pyo3(get,set)]
     color: Color,
     #[pyo3(get,set)]
+    eye_color: Color,
+    #[pyo3(get,set)]
     pattern: Pattern,
     #[pyo3(get,set)]
     animation: Option<Animation>,
