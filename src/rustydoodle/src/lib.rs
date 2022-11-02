@@ -4,7 +4,7 @@ use pyo3::prelude::*;
 #[pyclass]
 struct Doodle {
     #[pyo3(get,set)]
-    color: (f32,f32,f32,f32), // Color tuples need to be in this format for Panda3D. It is effectively (Red,Green,Blue,Alpha)
+    color: Color,
     #[pyo3(get,set)]
     pattern: Pattern,
     #[pyo3(get,set)]
@@ -12,6 +12,11 @@ struct Doodle {
     #[pyo3(get,set)]
     position: (u64,u64,u64) // Tuple of values to get the doodle's position in a 3D space.
 }
+
+/// A Color tuple for Panda3D. It is in the format of (Red,Green,Blue,Alpha)
+#[pyclass]
+#[derive(Clone)]
+struct Color(f32,f32,f32,f32);
 
 /// A pattern that a Doodle may have.
 #[pyclass]
