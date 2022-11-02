@@ -4,6 +4,8 @@ use pyo3::prelude::*;
 #[pyclass]
 struct Doodle {
     #[pyo3(get,set)]
+    color: (f32,f32,f32,f32), // Color tuples need to be in this format for Panda3D. It is effectively (Red,Green,Blue,Alpha)
+    #[pyo3(get,set)]
     pattern: Pattern,
     #[pyo3(get,set)]
     animation: Option<Animation>,
