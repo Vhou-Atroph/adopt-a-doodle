@@ -40,6 +40,16 @@ struct Pattern {
     tail: Option<String>
 }
 
+#[pymethods]
+impl Pattern {
+
+    /// Creates a new Pattern struct.
+    #[new]
+    fn new(body:String,legs:Option<String>,tail:Option<String>) -> Self {
+        Self {body,legs,tail}
+    }
+}
+
 /// An animation that the doodle will perform. 
 #[pyclass]
 #[derive(Clone)]
@@ -58,4 +68,14 @@ struct Animation {
     pose: bool, // Takes priority over anim_loop - if this is set to true then the actor will be stuck in a pose.
     #[pyo3(get,set)]
     pose_frame: Option<u64> // Necessary parameter if pose is true. Sets the frame the doodle will be posed at.
+}
+
+#[pymethods]
+impl Animation {
+
+    /// Creates a new Animation struct.
+    #[new]
+    fn new(file:String,anim_loop:bool,loop_from:Option<u64>,loop_to:Option<u64>,loop_restart:Option<u64>,pose:bool,pose_frame:Option<u64>) -> Self {
+        Self {file,anim_loop,loop_from,loop_to,loop_restart,pose,pose_frame}
+    }
 }
