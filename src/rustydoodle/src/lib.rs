@@ -7,6 +7,8 @@ struct Doodle {
     pattern: Pattern,
     #[pyo3(get,set)]
     animation: Option<Animation>,
+    #[pyo3(get,set)]
+    position: (u64,u64,u64) // Tuple of values to get the doodle's position in a 3D space.
 }
 
 /// A pattern that a Doodle may have.
