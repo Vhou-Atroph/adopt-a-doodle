@@ -11,6 +11,16 @@ struct Doodle {
     pattern: Pattern,
     #[pyo3(get,set)]
     animation: Option<Animation>,
+    #[pyo3(get,set)]
+    eyelashes: bool,
+    #[pyo3(get,set)]
+    hair: Option<String>, // 'feathers' or None
+    #[pyo3(get,set)]
+    ears: Option<String>, // 'catEars', 'horns', 'rabbitEars', 'dogEars', 'antennae', or None
+    #[pyo3(get,set)]
+    nose: Option<String>, // 'pigNose', 'ovalNose', 'dogNose', 'clownNose', or None
+    #[pyo3(get,set)]
+    tail: Option<String>, // 'longTail', 'catTail', 'bunnyTail', 'birdTail', or None
 }
 
 /// A Color tuple for Panda3D. It is in the format of (Red,Green,Blue,Alpha)
