@@ -16,6 +16,13 @@ def adopt(actor:rustydoodle.Doodle) -> Actor:
         doodle.findAllMatches('**/'+actor.ears).setTexture(loader.loadTexture(actor.pattern.ears),1)
     if actor.pattern.tail:
         doodle.findAllMatches('**/'+actor.tail).setTexture(loader.loadTexture(actor.pattern.tail),1)
+    if not actor.eyelashes:
+        doodle.findAllMatches('**/eyeWhites').setTexture(loader.loadTexture('phase_4/maps/BeanEyeBoys2.jpg','phase_4/maps/BeanEyeBoys2_a.rgb'),1)
+    doodle.findAllMatches('**/eyeWhites').setColor(1,1,1,1)
+    doodle.findAllMatches('**/rightPupil').setColor(actor.eye_color)
+    doodle.findAllMatches('**/leftPupil').setColor(actor.eye_color)
+    doodle.findAllMatches('**/rightBrow').setColor(0,0,0,1)
+    doodle.findAllMatches('**/leftBrow').setColor(0,0,0,1)
 
     _getparts(actor,doodle,rustydoodle.hair_list(),actor.hair)
     _getparts(actor,doodle,rustydoodle.ear_list(),actor.ears)
