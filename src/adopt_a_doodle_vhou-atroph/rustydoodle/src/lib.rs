@@ -8,6 +8,7 @@ fn rustydoodle(_: Python<'_>, m: &PyModule) -> PyResult<()> {
     m.add_class::<Pattern>()?;
     m.add_class::<Animation>()?;
     m.add_function(wrap_pyfunction!(cinnamon, m)?)?;
+    m.add_function(wrap_pyfunction!(hair_list, m)?)?;
     Ok(())
 }
 
