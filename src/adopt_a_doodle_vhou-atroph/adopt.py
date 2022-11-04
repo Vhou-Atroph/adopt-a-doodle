@@ -1,8 +1,8 @@
 from direct.actor.Actor import Actor
 
-import rustydoodle
+from rustydoodle import Doodle,Color,Pattern,Animation
 
-def adopt(actor:rustydoodle.Doodle) -> Actor:
+def adopt(actor:Doodle) -> Actor:
     """Creates a Doodle actor."""
     doodle = Actor("TT_pets-mod.bam",{"animation":actor.animation.file})
 
