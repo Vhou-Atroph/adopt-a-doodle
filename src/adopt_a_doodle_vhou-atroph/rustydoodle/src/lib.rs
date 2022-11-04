@@ -53,6 +53,8 @@ impl Doodle {
 #[derive(Clone)]
 struct Pattern {
     #[pyo3(get,set)]
+    ears: Option<String>,
+    #[pyo3(get,set)]
     body: String,
     #[pyo3(get,set)]
     legs: String,
@@ -65,8 +67,8 @@ impl Pattern {
 
     /// Creates a new Pattern struct.
     #[new]
-    fn new(body:String,legs:String,tail:Option<String>) -> Self {
-        Self {body,legs,tail}
+    fn new(ears:Option<String>,body:String,legs:String,tail:Option<String>) -> Self {
+        Self {ears,body,legs,tail}
     }
 }
 
@@ -107,6 +109,7 @@ fn cinnamon() -> Doodle {
         color: (0.996094, 0.695312, 0.511719, 1.0),
         eye_color: (0.242188, 0.742188, 0.515625, 1.0),
         pattern: Pattern{
+            ears: Some(String::from("phase_4/maps/BeanBunnyEar6.jpg")),
             body: String::from("phase_4/maps/BeanbodyDots6.jpg"),
             legs: String::from("phase_4/maps/BeanFoot6.jpg"),
             tail: Some(String::from("phase_4/maps/beanCatTail6.jpg"))
