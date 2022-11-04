@@ -12,6 +12,8 @@ def adopt(actor:rustydoodle.Doodle) -> Actor:
     doodle.findAllMatches('**/leftFoot').setTexture(loader.loadTexture(actor.pattern.legs),1)
     doodle.findAllMatches('**/rightFoot').setColor(actor.color)
     doodle.findAllMatches('**/leftFoot').setColor(actor.color)
+    if actor.pattern.ears:
+        doodle.findAllMatches('**/'+actor.ears).setTexture(loader.loadTexture(actor.pattern.ears),1)
     if actor.pattern.tail:
         doodle.findAllMatches('**/'+actor.tail).setTexture(loader.loadTexture(actor.pattern.tail),1)
 
