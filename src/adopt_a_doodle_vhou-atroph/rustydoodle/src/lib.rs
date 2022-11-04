@@ -4,7 +4,6 @@ use pyo3::prelude::*;
 #[pymodule]
 fn rustydoodle(_: Python<'_>, m: &PyModule) -> PyResult<()> {
     m.add_class::<Doodle>()?;
-    m.add_class::<Color>()?;
     m.add_class::<Pattern>()?;
     m.add_class::<Animation>()?;
     m.add_function(wrap_pyfunction!(cinnamon, m)?)?;
@@ -20,9 +19,9 @@ fn rustydoodle(_: Python<'_>, m: &PyModule) -> PyResult<()> {
 #[pyclass]
 struct Doodle {
     #[pyo3(get,set)]
-    color: Color,
+    color: (f32,f32,f32,f32), // A Color tuple for Panda3D. It is in the format of (Red,Green,Blue,Alpha)
     #[pyo3(get,set)]
-    eye_color: Color,
+    eye_color: (f32,f32,f32,f32),
     #[pyo3(get,set)]
     pattern: Pattern,
     #[pyo3(get,set)]
@@ -44,23 +43,8 @@ impl Doodle {
 
     /// Creates a new Doodle struct.
     #[new]
-    fn new(color:Color,eye_color:Color,pattern:Pattern,animation:Option<Animation>,eyelashes:bool,hair:Option<String>,ears:Option<String>,nose:Option<String>,tail:Option<String>) -> Self {
+    fn new(color:(f32,f32,f32,f32),eye_color:(f32,f32,f32,f32),pattern:Pattern,animation:Option<Animation>,eyelashes:bool,hair:Option<String>,ears:Option<String>,nose:Option<String>,tail:Option<String>) -> Self {
         Self {color,eye_color,pattern,animation,eyelashes,hair,ears,nose,tail}
-    }
-}
-
-/// A Color tuple for Panda3D. It is in the format of (Red,Green,Blue,Alpha)
-#[pyclass]
-#[derive(Clone)]
-struct Color(f32,f32,f32,f32);
-
-#[pymethods]
-impl Color {
-
-    /// Creates a new Color tuple struct.
-    #[new]
-    fn new(r:f32,g:f32,b:f32,a:f32) -> Self {
-        Self(r,g,b,a)
     }
 }
 
@@ -120,8 +104,8 @@ impl Animation {
 #[pyfunction]
 fn cinnamon() -> Doodle {
     Doodle {
-        color: Color(0.996094, 0.695312, 0.511719, 1.0),
-        eye_color: Color(0.242188, 0.742188, 0.515625, 1.0),
+        color: (0.996094, 0.695312, 0.511719, 1.0),
+        eye_color: (0.242188, 0.742188, 0.515625, 1.0),
         pattern: Pattern{
             body: String::from("phase_4/maps/BeanbodyDots6.jpg"),
             legs: None,
