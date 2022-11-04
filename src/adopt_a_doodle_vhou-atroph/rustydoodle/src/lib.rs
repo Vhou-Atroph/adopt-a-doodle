@@ -139,3 +139,9 @@ fn cinnamon() -> Doodle {
         tail: Some(String::from("catTail"))
     }
 }
+
+/// Function returning list of hair options for doodles.
+#[pyfunction]
+fn hair_list() -> Vec<String> {
+    vec![String::from("feathers")]
+}
