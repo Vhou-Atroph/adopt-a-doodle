@@ -154,3 +154,6 @@ fn nose_list() -> Vec<String> {
 fn tail_list() -> Vec<String> {
     vec![String::from("longTail"),String::from("catTail"),String::from("bunnyTail"),String::from("birdTail")]
 }
+
+// sooo i was trying to figure out an issue i was having (pyd detection in python packages, i kept trying but it just wasn't working.) and during my efforts, my internet decided to shit itself. so instead of trying to figure it out im just going to leave the project in this format. it doesn't matter too much.
+// it at least works and that's good enough for me.
