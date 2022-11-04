@@ -1,5 +1,17 @@
 use pyo3::prelude::*;
 
+/// Module for basic classes in adopt-a-doodle. This module is implemented in Rust.
+#[pymodule]
+fn rustydoodle(_: Python<'_>, m: &PyModule) -> PyResult<()> {
+    m.add_class::<Doodle>()?;
+    m.add_class::<Color>()?;
+    m.add_class::<Pattern>()?;
+    m.add_class::<Animation>()?;
+    m.add_function(wrap_pyfunction!(cinnamon, m)?)?;
+    Ok(())
+}
+
+
 /// A Doodle is a species that hails from Doodlevania, an area outside of Toontown owned by Deedle von Doodlesworth. Many are kept as pets by Toons, and you can adopt them at a pet shop.
 #[pyclass]
 struct Doodle {
