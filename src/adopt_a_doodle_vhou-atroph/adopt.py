@@ -25,4 +25,6 @@ def adopt(actor:rustydoodle.Doodle) -> Actor:
     doodle.play("animation")
     if actor.animation.anim_loop:
         doodle.loop("animation",restart=actor.animation.loop_restart,fromFrame=actor.animation.loop_from,toFrame=actor.animation.loop_to)
+    if actor.pose:
+        doodle.pose("animation",actor.pose_frame)
     return doodle
