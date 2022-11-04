@@ -9,6 +9,9 @@ fn rustydoodle(_: Python<'_>, m: &PyModule) -> PyResult<()> {
     m.add_class::<Animation>()?;
     m.add_function(wrap_pyfunction!(cinnamon, m)?)?;
     m.add_function(wrap_pyfunction!(hair_list, m)?)?;
+    m.add_function(wrap_pyfunction!(ear_list, m)?)?;
+    m.add_function(wrap_pyfunction!(nose_list, m)?)?;
+    m.add_function(wrap_pyfunction!(tail_list, m)?)?;
     Ok(())
 }
 
@@ -145,4 +148,22 @@ fn cinnamon() -> Doodle {
 #[pyfunction]
 fn hair_list() -> Vec<String> {
     vec![String::from("feathers")]
+}
+
+/// Function returning list of ear options for doodles.
+#[pyfunction]
+fn ear_list() -> Vec<String> {
+    vec![String::from("catEars"),String::from("horns"),String::from("rabbitEars"),String::from("dogEars"),String::from("antennae")]
+}
+
+/// Function returning list of nose options for doodles.
+#[pyfunction]
+fn nose_list() -> Vec<String> {
+    vec![String::from("pigNose"),String::from("ovalNose"),String::from("dogNose"),String::from("clownNose")]
+}
+
+/// Function returning list of tail options for doodles.
+#[pyfunction]
+fn tail_list() -> Vec<String> {
+    vec![String::from("longTail"),String::from("catTail"),String::from("bunnyTail"),String::from("birdTail")]
 }
