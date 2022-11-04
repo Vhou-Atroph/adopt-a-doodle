@@ -6,6 +6,13 @@ def adopt(actor:rustydoodle.Doodle) -> Actor:
     """Creates a Doodle actor."""
     doodle = Actor("TT_pets-mod.bam",{"animation":actor.animation.file})
 
+    doodle.findAllMatches('**/body').setTexture(loader.loadTexture(actor.pattern.body),1)
+    if actor.pattern.legs:
+        doodle.findAllMatches('**/rightFoot').setTexture(loader.loadTexture(actor.pattern.legs),1)
+        doodle.findAllMatches('**/leftFoot').setTexture(loader.loadTexture(actor.pattern.legs),1)
+    if actor.pattern.tail:
+        doodle.findAllMatches('**/longTail').setTexture(loader.loadTexture(actor.pattern.tail),1)
+
     for i in rustydoodle.hair_list():
         if i != actor.hair:
             doodle.findAllMatches('**/'+i).hide()
