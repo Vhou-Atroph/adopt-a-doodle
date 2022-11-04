@@ -23,6 +23,16 @@ struct Doodle {
     tail: Option<String>, // 'longTail', 'catTail', 'bunnyTail', 'birdTail', or None
 }
 
+#[pymethods]
+impl Doodle {
+
+    /// Creates a new Doodle struct.
+    #[new]
+    fn new(color:Color,eye_color:Color,pattern:Pattern,animation:Option<Animation>,eyelashes:bool,hair:Option<String>,ears:Option<String>,nose:Option<String>,tail:Option<String>) -> Self {
+        Self {color,eye_color,pattern,animation,eyelashes,hair,ears,nose,tail}
+    }
+}
+
 /// A Color tuple for Panda3D. It is in the format of (Red,Green,Blue,Alpha)
 #[pyclass]
 #[derive(Clone)]
