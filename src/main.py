@@ -3,6 +3,7 @@ from direct.actor.Actor import Actor
 import rustydoodle
 
 def adopt(actor:rustydoodle.Doodle) -> Actor:
+    """Creates a Doodle actor."""
     doodle = Actor("TT_pets-mod.bam",{"animation":actor.animation.file})
 
     doodle.play("animation")
