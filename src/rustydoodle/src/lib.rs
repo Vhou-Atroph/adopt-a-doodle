@@ -99,3 +99,31 @@ impl Animation {
         Self {file,anim_loop,loop_from,loop_to,loop_restart,pose,pose_frame}
     }
 }
+
+/// Cinnamon, a really cool doodle!
+#[pyfunction]
+fn cinnamon() -> Doodle {
+    Doodle {
+        color: Color(0.996094, 0.695312, 0.511719, 1.0),
+        eye_color: Color(0.242188, 0.742188, 0.515625, 1.0),
+        pattern: Pattern{
+            body: String::from("phase_4/maps/BeanbodyDots6.jpg"),
+            legs: None,
+            tail: None
+        },
+        animation: Some(Animation{
+            file: String::from("phase_4/models/char/TT_pets-neutralHappy.bam"),
+            anim_loop: true,
+            loop_from: None,
+            loop_to: None,
+            loop_restart: None,
+            pose: false,
+            pose_frame: None
+        }),
+        eyelashes: true,
+        hair: None,
+        ears: Some(String::from("rabbitEars")),
+        nose: None,
+        tail: Some(String::from("catTail"))
+    }
+}
