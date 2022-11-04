@@ -55,7 +55,7 @@ struct Pattern {
     #[pyo3(get,set)]
     body: String,
     #[pyo3(get,set)]
-    legs: Option<String>, // Some doodle patterns affect more than just the body of the doodle- having an Option here will handle those.
+    legs: String,
     #[pyo3(get,set)]
     tail: Option<String>
 }
@@ -65,7 +65,7 @@ impl Pattern {
 
     /// Creates a new Pattern struct.
     #[new]
-    fn new(body:String,legs:Option<String>,tail:Option<String>) -> Self {
+    fn new(body:String,legs:String,tail:Option<String>) -> Self {
         Self {body,legs,tail}
     }
 }
@@ -108,8 +108,8 @@ fn cinnamon() -> Doodle {
         eye_color: (0.242188, 0.742188, 0.515625, 1.0),
         pattern: Pattern{
             body: String::from("phase_4/maps/BeanbodyDots6.jpg"),
-            legs: None,
-            tail: None
+            legs: String::from("phase_4/maps/BeanFoot6.jpg"),
+            tail: Some(String::from("phase_4/maps/beanCatTail6.jpg"))
         },
         animation: Some(Animation{
             file: String::from("phase_4/models/char/TT_pets-neutralHappy.bam"),
