@@ -2,9 +2,10 @@
 from panda3d.core import *
 from direct.directbase import DirectStart
 
-import main
+import adopt
+import rustydoodle
 
-cinnamon = main.adopt(main.rustydoodle.cinnamon())
+cinnamon = adopt.adopt(rustydoodle.cinnamon())
 cinnamon.reparentTo(render)
 
 base.run()
