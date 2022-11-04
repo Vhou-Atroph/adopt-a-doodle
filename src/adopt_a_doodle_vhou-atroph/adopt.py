@@ -13,21 +13,10 @@ def adopt(actor:rustydoodle.Doodle) -> Actor:
     if actor.pattern.tail:
         doodle.findAllMatches('**/longTail').setTexture(loader.loadTexture(actor.pattern.tail),1)
 
-    for i in rustydoodle.hair_list():
-        if i != actor.hair:
-            doodle.findAllMatches('**/'+i).hide()
-    
-    for i in rustydoodle.ear_list():
-        if i != actor.ears:
-            doodle.findAllMatches('**/'+i).hide()
-    
-    for i in rustydoodle.nose_list():
-        if i != actor.nose:
-            doodle.findAllMatches('**/'+i).hide()
-    
-    for i in rustydoodle.tail_list():
-        if i != actor.tail:
-            doodle.findAllMatches('**/'+i).hide()
+    _getparts(actor,doodle,rustydoodle.hair_list(),actor.hair)
+    _getparts(actor,doodle,rustydoodle.ear_list(),actor.ears)
+    _getparts(actor,doodle,rustydoodle.nose_list(),actor.nose)
+    _getparts(actor,doodle,rustydoodle.tail_list(),actor.tail)
 
     doodle.play("animation")
     if actor.animation.anim_loop:
@@ -35,3 +24,10 @@ def adopt(actor:rustydoodle.Doodle) -> Actor:
     if actor.animation.pose:
         doodle.pose("animation",actor.pose_frame)
     return doodle
+
+def _getparts(actor:rustydoodle.Doodle,doodle:Actor,part_list:list,part:str):
+    for i in part_list:
+        if i!= part:
+            doodle.findAllMatches('**/'+i).hide()
+        else:
+            doodle.findAllMatches('**/'+i).setColor(actor.color)
