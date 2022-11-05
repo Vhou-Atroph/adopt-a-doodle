@@ -157,3 +157,5 @@ fn tail_list() -> Vec<String> {
 
 // sooo i was trying to figure out an issue i was having (pyd detection in python packages, i kept trying but it just wasn't working.) and during my efforts, my internet decided to shit itself. so instead of trying to figure it out im just going to leave the project in this format. it doesn't matter too much.
 // it at least works and that's good enough for me.
+// great news! i figured out how to make it work! all i had to do was read pyo3's readme!
+// anyways now all i need to do here is document my code. which uh. i'll get to eventually.
