@@ -1,11 +1,11 @@
 """Test module creating an instance of Cinnamon"""
-from panda3d.core import NodePath
 from direct.directbase.DirectStart import base
 
-import adopt
-import rustydoodle
+import adopt_a_doodle
 
-cinnamon = adopt.adopt(rustydoodle.cinnamon())
+cinnamon = adopt_a_doodle.adopt(adopt_a_doodle.cinnamon())
+cinnamon.setPos(0,5,-1.2)
+cinnamon.setH(180)
 cinnamon.reparentTo(render)
 
 base.run()
