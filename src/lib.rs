@@ -25,9 +25,9 @@ fn rustydoodle(_: Python<'_>, m: &PyModule) -> PyResult<()> {
 ///         color: (0.546875, 0.28125, 0.75, 1.0), // The color field requires a struct containing four 32-bit floating point values of values 0 through 1. The first three values are for Red, Blue, and Green content. The fourth value is the Alpha value. In this example, the color is purple.
 ///         eye_color: (0.242188, 0.742188, 0.515625, 1.0), // The same as color, but for the doodle's eyes. In this example, the color is sea green.
 ///         pattern: Pattern { // See the docs for the Pattern struct.
-///             ears: Some(String::from("phase_4/maps/BeanCatEar6.jpg")),
+///             ears: Some(String::from("phase_4/maps/BeanCatEar3Yellow.jpg")),
 ///             body: String::from("phase_4/maps/BeanbodyLepord2.jpg"),
-///             legs: String::from("phase_4/maps/BeanFoot6.jpg"),
+///             legs: String::from("phase_4/maps/BeanFootYellow1.jpg"),
 ///             tail: Some(String::from("phase_4/maps/BeanLongTailLepord.jpg"))
 ///         },
 ///         animation: Some(Animation { // See the docs for the Animation struct.
@@ -52,9 +52,10 @@ fn rustydoodle(_: Python<'_>, m: &PyModule) -> PyResult<()> {
 /// from rustydoodle import *
 /// 
 /// example_doodle = Doodle(color=(0.546875, 0.28125, 0.75, 1.0),
-///     pattern=Pattern(ears="phase_4/maps/BeanCatEar6.jpg",
+///     eye_color=(0.242188, 0.742188, 0.515625, 1.0),
+///     pattern=Pattern(ears="phase_4/maps/BeanCatEar3Yellow.jpg",
 ///         body="phase_4/maps/BeanbodyLepord2.jpg",
-///         legs="phase_4/maps/BeanFoot6.jpg",
+///         legs="phase_4/maps/BeanFootYellow1.jpg",
 ///         tail="phase_4/maps/BeanLongTailLepord.jpg"),
 ///     animation=Animation(file="phase_5/models/char/TT_pets-speak.bam",
 ///         anim_loop=True,
