@@ -1,2 +1,2 @@
-from . import rustydoodle
+from .rustydoodle import *
 from .adopt import adopt
