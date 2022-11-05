@@ -1,4 +1,9 @@
 from direct.actor.Actor import Actor
+from direct.showbase.ShowBase import ShowBase  
+from pandac import *
+from direct import *
+from panda3d.core import *
+from direct.showbase.Loader import *
 
 from . import rustydoodle
 
