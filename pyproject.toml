@@ -11,7 +11,7 @@ version = "0.0.1"
 authors = [
   { name="Vhou-Atroph", email="vhouatroph@proton.me" },
 ]
-description = ""
+description = "A Python package to make the creation of Doodle actors easier!"
 readme = "readme.md"
 requires-python = ">=3.10"
 classifiers = [
