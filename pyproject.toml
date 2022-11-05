@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0","Panda3D>=1.10.11"]
+build-backend = "setuptools.build_meta"
+
+[tool.maturin]
+python-source = "src"
+
+[project]
+name = "adopt_a_doodle"
+version = "0.0.1"
+authors = [
+  { name="Vhou-Atroph", email="vhouatroph@proton.me" },
+]
+description = ""
+readme = "readme.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/Vhou-Atroph/adopt-a-doodle"
+"Bug Tracker" = "https://github.com/Vhou-Atroph/adopt-a-doodle/issues"
