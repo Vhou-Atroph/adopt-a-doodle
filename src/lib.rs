@@ -16,8 +16,62 @@ fn rustydoodle(_: Python<'_>, m: &PyModule) -> PyResult<()> {
 
 
 /// A Doodle is a species that hails from Doodlevania, an area outside of Toontown owned by Deedle von Doodlesworth. Many are kept as pets by Toons, and you can adopt them at a pet shop.
+/// Here's an explanation of each field:
+/// ```rust
+/// use rustydoodle::*;
+/// 
+/// fn makeadoodle() -> Doodle {
+///     Doodle {
+///         color: (0.546875, 0.28125, 0.75, 1.0), // The color field requires a struct containing four 32-bit floating point values of values 0 through 1. The first three values are for Red, Blue, and Green content. The fourth value is the Alpha value. In this example, the color is purple.
+///         eye_color: (0.242188, 0.742188, 0.515625, 1.0), // The same as color, but for the doodle's eyes. In this example, the color is sea green.
+///         pattern: Pattern { // See the docs for the Pattern struct.
+///             ears: String::from("phase_4/maps/BeanCatEar6.jpg"),
+///             body: String::from("phase_4/maps/BeanbodyLepord2.jpg"),
+///             legs: String::from("phase_4/maps/BeanFoot6.jpg"),
+///             tail: String::from("phase_4/maps/BeanLongTailLepord.jpg")
+///         },
+///         animation: Some(Animation { // See the docs for the Animation struct.
+///             file: String::from("phase_5/models/char/TT_pets-speak.bam"),
+///             anim_loop: true,
+///             loop_from: None,
+///             loop_to: None,
+///             loop_restart: None,
+///             pose: false,
+///             pose_frame: None,
+///         }),
+///         eyelashes: false, // A boolean that determines whether or not the doodle has eyelashes. In this case, the doodle will not have eyelashes.
+///         hair: None, // An Option<String> value to determine if, and what hair style the doodle will have. See rustydoodle::hair_list() for the list of hair options.
+///         ears: Some(String::from("catEars")), // An Option<String> value to determine if, and what ears the doodle will have. See rustydoodle::ear_list() for the list of ear options.
+///         nose: None, // An Option<String> value to determine if, and what nose style the doodle will have. See rustydoodle::nose_list() for the list of nose options.
+///         tail: Some(String::from("longTail")) // An Option<String> value to determine if, and what tail style the doodle will have. See rustydoodle::tail_list() for the list of tail options.
+///     }
+/// }
+/// ```
+/// However, since this is a Python module, you probably won't be implementing this struct like this in Rust! Here's how the same doodle would look in Python:
+/// ```python
+/// from rustydoodle import *
+/// 
+/// example_doodle = Doodle(color=(0.546875, 0.28125, 0.75, 1.0),
+///     pattern=Pattern(ears="phase_4/maps/BeanCatEar6.jpg",
+///         body="phase_4/maps/BeanbodyLepord2.jpg",
+///         legs="phase_4/maps/BeanFoot6.jpg",
+///         tail="phase_4/maps/BeanLongTailLepord.jpg"),
+///     animation=Animation(file="phase_5/models/char/TT_pets-speak.bam",
+///         anim_loop=True,
+///         loop_from=None,
+///         loop_to=None,
+///         loop_restart=None,
+///         pose=False,
+///         pose_frame=None),
+///     eyelashes=False,
+///     hair=None,
+///     ears="catEars",
+///     nose=None,
+///     tail="longTail")
+/// ```
+/// If using rustydoodle through adopt_a_doodle, the Doodle struct will be accessible through `adopt_a_doodle.Doodle`.
 #[pyclass]
-struct Doodle {
+pub struct Doodle {
     #[pyo3(get,set)]
     color: (f32,f32,f32,f32), // A Color tuple for Panda3D. It is in the format of (Red,Green,Blue,Alpha)
     #[pyo3(get,set)]
@@ -43,7 +97,7 @@ impl Doodle {
 
     /// Creates a new Doodle struct.
     #[new]
-    fn new(color:(f32,f32,f32,f32),eye_color:(f32,f32,f32,f32),pattern:Pattern,animation:Option<Animation>,eyelashes:bool,hair:Option<String>,ears:Option<String>,nose:Option<String>,tail:Option<String>) -> Self {
+    pub fn new(color:(f32,f32,f32,f32),eye_color:(f32,f32,f32,f32),pattern:Pattern,animation:Option<Animation>,eyelashes:bool,hair:Option<String>,ears:Option<String>,nose:Option<String>,tail:Option<String>) -> Self {
         Self {color,eye_color,pattern,animation,eyelashes,hair,ears,nose,tail}
     }
 }
@@ -51,7 +105,7 @@ impl Doodle {
 /// A pattern that a Doodle may have.
 #[pyclass]
 #[derive(Clone)]
-struct Pattern {
+pub struct Pattern {
     #[pyo3(get,set)]
     ears: Option<String>,
     #[pyo3(get,set)]
@@ -67,7 +121,7 @@ impl Pattern {
 
     /// Creates a new Pattern struct.
     #[new]
-    fn new(ears:Option<String>,body:String,legs:String,tail:Option<String>) -> Self {
+    pub fn new(ears:Option<String>,body:String,legs:String,tail:Option<String>) -> Self {
         Self {ears,body,legs,tail}
     }
 }
@@ -75,7 +129,7 @@ impl Pattern {
 /// An animation that the doodle will perform. 
 #[pyclass]
 #[derive(Clone)]
-struct Animation {
+pub struct Animation {
     #[pyo3(get,set)]
     file: String,
     #[pyo3(get,set)]
@@ -97,7 +151,7 @@ impl Animation {
 
     /// Creates a new Animation struct.
     #[new]
-    fn new(file:String,anim_loop:bool,loop_from:Option<u64>,loop_to:Option<u64>,loop_restart:Option<u64>,pose:bool,pose_frame:Option<u64>) -> Self {
+    pub fn new(file:String,anim_loop:bool,loop_from:Option<u64>,loop_to:Option<u64>,loop_restart:Option<u64>,pose:bool,pose_frame:Option<u64>) -> Self {
         Self {file,anim_loop,loop_from,loop_to,loop_restart,pose,pose_frame}
     }
 }
@@ -133,25 +187,25 @@ fn cinnamon() -> Doodle {
 
 /// Function returning list of hair options for doodles.
 #[pyfunction]
-fn hair_list() -> Vec<String> {
+pub fn hair_list() -> Vec<String> {
     vec![String::from("feathers")]
 }
 
 /// Function returning list of ear options for doodles.
 #[pyfunction]
-fn ear_list() -> Vec<String> {
+pub fn ear_list() -> Vec<String> {
     vec![String::from("catEars"),String::from("horns"),String::from("rabbitEars"),String::from("dogEars"),String::from("antennae")]
 }
 
 /// Function returning list of nose options for doodles.
 #[pyfunction]
-fn nose_list() -> Vec<String> {
+pub fn nose_list() -> Vec<String> {
     vec![String::from("pigNose"),String::from("ovalNose"),String::from("dogNose"),String::from("clownNose")]
 }
 
 /// Function returning list of tail options for doodles.
 #[pyfunction]
-fn tail_list() -> Vec<String> {
+pub fn tail_list() -> Vec<String> {
     vec![String::from("longTail"),String::from("catTail"),String::from("bunnyTail"),String::from("birdTail")]
 }
 
