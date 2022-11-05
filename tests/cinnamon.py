@@ -1,4 +1,3 @@
-"""Test module creating an instance of Cinnamon"""
 from direct.directbase.DirectStart import base
 
 import adopt_a_doodle
