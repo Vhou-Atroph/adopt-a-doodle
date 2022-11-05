@@ -125,7 +125,7 @@ impl Doodle {
 ///     legs="phase_4/maps/BeanFoot6.jpg",
 ///     tail="phase_4/maps/BeanLongTailLepord.jpg")
 /// ```
-/// If using rustydoodle through adopt_a_doodle, the Doodle struct will be accessible through `adopt_a_doodle.Pattern`.
+/// If using rustydoodle through adopt_a_doodle, the Pattern struct will be accessible through `adopt_a_doodle.Pattern`.
 #[pyclass]
 #[derive(Clone)]
 pub struct Pattern {
