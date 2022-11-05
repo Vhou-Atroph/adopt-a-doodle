@@ -2,6 +2,7 @@
 *.pyd
 Cargo.lock
 target
+phase*
 
 # Distribution / packaging
 .Python
