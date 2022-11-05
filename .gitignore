@@ -3,6 +3,7 @@
 Cargo.lock
 target
 phase*
+*.bam
 
 # Distribution / packaging
 .Python
