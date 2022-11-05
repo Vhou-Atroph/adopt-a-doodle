@@ -25,10 +25,10 @@ fn rustydoodle(_: Python<'_>, m: &PyModule) -> PyResult<()> {
 ///         color: (0.546875, 0.28125, 0.75, 1.0), // The color field requires a struct containing four 32-bit floating point values of values 0 through 1. The first three values are for Red, Blue, and Green content. The fourth value is the Alpha value. In this example, the color is purple.
 ///         eye_color: (0.242188, 0.742188, 0.515625, 1.0), // The same as color, but for the doodle's eyes. In this example, the color is sea green.
 ///         pattern: Pattern { // See the docs for the Pattern struct.
-///             ears: String::from("phase_4/maps/BeanCatEar6.jpg"),
+///             ears: Some(String::from("phase_4/maps/BeanCatEar6.jpg")),
 ///             body: String::from("phase_4/maps/BeanbodyLepord2.jpg"),
 ///             legs: String::from("phase_4/maps/BeanFoot6.jpg"),
-///             tail: String::from("phase_4/maps/BeanLongTailLepord.jpg")
+///             tail: Some(String::from("phase_4/maps/BeanLongTailLepord.jpg"))
 ///         },
 ///         animation: Some(Animation { // See the docs for the Animation struct.
 ///             file: String::from("phase_5/models/char/TT_pets-speak.bam"),
@@ -37,7 +37,7 @@ fn rustydoodle(_: Python<'_>, m: &PyModule) -> PyResult<()> {
 ///             loop_to: None,
 ///             loop_restart: None,
 ///             pose: false,
-///             pose_frame: None,
+///             pose_frame: None
 ///         }),
 ///         eyelashes: false, // A boolean that determines whether or not the doodle has eyelashes. In this case, the doodle will not have eyelashes.
 ///         hair: None, // An Option<String> value to determine if, and what hair style the doodle will have. See rustydoodle::hair_list() for the list of hair options.
@@ -103,6 +103,29 @@ impl Doodle {
 }
 
 /// A pattern that a Doodle may have.
+/// Here's an explanation for each field:
+/// ```rust
+/// use rustydoodle::*;
+/// 
+/// fn makeapattern() -> Pattern {
+///     Pattern {
+///     ears: Some(String::from("phase_4/maps/BeanCatEar6.jpg")), // An Option<String> value that representing a file path  leads to a doodle's ear texture. Since not every doodle will have ears, this is an optional value.
+///     body: String::from("phase_4/maps/BeanbodyLepord2.jpg"), // A String value representing a file path that leads to a doodle's body texture.
+///     legs: String::from("phase_4/maps/BeanFoot6.jpg"), // A String value representing a file path that leads to a doodle's foot texture.
+///     tail: Some(String::from("phase_4/maps/BeanLongTailLepord.jpg")) // An Option<String> value that representing a file path  leads to a doodle's tail texture. Since not every doodle will have a tail, this is an optional value.
+///     }
+/// }
+/// ```
+/// However, since this is a Python module, you probably won't be implementing this struct like this in Rust! Here's how the same pattern would look in Python:
+/// ```python
+/// from rustydoodle import *
+/// 
+/// let examplepattern = Pattern(ears="phase_4/maps/BeanCatEar6.jpg",
+///     body="phase_4/maps/BeanbodyLepord2.jpg",
+///     legs="phase_4/maps/BeanFoot6.jpg",
+///     tail="phase_4/maps/BeanLongTailLepord.jpg")
+/// ```
+/// If using rustydoodle through adopt_a_doodle, the Doodle struct will be accessible through `adopt_a_doodle.Pattern`.
 #[pyclass]
 #[derive(Clone)]
 pub struct Pattern {
