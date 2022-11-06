@@ -86,12 +86,12 @@ base.run()
 
 This code will produce the following doodle:
 
-![A purple doodle with Leopard spots, cat ears, and a long tail.](tests/example_doodle.png)
+![A purple doodle with Leopard spots, cat ears, and a long tail.](https://raw.githubusercontent.com/Vhou-Atroph/adopt-a-doodle/main/tests/example_doodle.png)
 
 ## Documentation
 
-You can find documentation for adopt_a_doodle in the [rustydoodle lib.rs file](src/lib.rs).
+You can find documentation for adopt_a_doodle in the [rustydoodle lib.rs file](https://raw.githubusercontent.com/Vhou-Atroph/adopt-a-doodle/main/src/lib.rs).
 
 ## License
 
-Code in adopt_a_doodle is licensed under the [GNU General Public License v3.0](/LICENSE).
+Code in adopt_a_doodle is licensed under the [MIT License](/LICENSE).
