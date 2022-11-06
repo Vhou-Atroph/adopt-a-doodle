@@ -10,7 +10,7 @@ strip = true
 [project]
 name = "adopt_a_doodle"
 dependencies = ["Panda3D~=1.10.11"]
-version = "0.0.1a"
+version = "0.0.1"
 authors = [
   { name="Vhou-Atroph", email="vhouatroph@proton.me" },
 ]
