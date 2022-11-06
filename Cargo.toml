@@ -14,4 +14,4 @@ version = "0.17.1"
 features = ["extension-module"]
 
 [package.metadata.maturin]
-python-source = "src/adopt_a_doodle"
+name = "adopt_a_doodle.rustydoodle"
