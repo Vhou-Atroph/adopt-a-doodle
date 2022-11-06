@@ -2,6 +2,14 @@
 
 A Python package to make the creation of Doodle actors easier!
 
+## Dependencies
+
+adopt_a_doodle depends on Panda3D. If you have not installed it already, you can do so with the following command:
+
+```pip
+pip install Panda3D
+```
+
 ## Installing
 
 To install the latest version of adopt_a_doodle, open your favorite command terminal and use the following command:
