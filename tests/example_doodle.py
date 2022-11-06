@@ -1,7 +1,8 @@
 from direct.directbase.DirectStart import base
 import adopt_a_doodle
 
-example_doodle = adopt_a_doodle.adopt(adopt_a_doodle.Doodle(color=(0.546875, 0.28125, 0.75, 1.0),
+example_doodle = adopt_a_doodle.adopt(adopt_a_doodle.Doodle(
+    color=(0.546875, 0.28125, 0.75, 1.0),
     eye_color=(0.242188, 0.742188, 0.515625, 1.0),
     pattern=adopt_a_doodle.Pattern(ears="phase_4/maps/BeanCatEar3Yellow.jpg",
         body="phase_4/maps/BeanbodyLepord2.jpg",
