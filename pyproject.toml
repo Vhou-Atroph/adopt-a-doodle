@@ -1,12 +1,13 @@
 [build-system]
-requires = ["setuptools>=61.0","Panda3D>=1.10.11"]
-build-backend = "setuptools.build_meta"
+requires = ["maturin>=0.13,<0.14"]
+build-backend = "maturin"
 
 [tool.maturin]
 python-source = "src/adopt_a_doodle"
 
 [project]
 name = "adopt_a_doodle"
+dependencies = ["Panda3D~=1.10.11"]
 version = "0.0.1"
 authors = [
   { name="Vhou-Atroph", email="vhouatroph@proton.me" },
