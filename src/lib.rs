@@ -150,7 +150,36 @@ impl Pattern {
     }
 }
 
-/// An animation that the doodle will perform. 
+/// An animation that the doodle will perform.
+/// Here's an explanation for each field:
+/// ```rust
+/// use rustydoodle::*;
+/// 
+/// fn exampleanimation() -> Animation {
+///     Animation {
+///     file: String::from("phase_5/models/char/TT_pets-speak.bam"), // A String value representing a file path that leads to a doodle's animation.
+///     anim_loop: true, // A boolean that determines whether or not the doodle's animation will loop. Here, it is set to true.
+///     loop_from: None, // An Option<u64> value that determines from which initial frame the animation will loop.
+///     loop_to: None, // An Option<u64> value that determines to which final frame the animation will loop.
+///     loop_restart: None, // An Option<u64> value that determines from which frame the doodle's animation will restart.
+///     pose: false, // A boolean that determines whether or not the doodle's animation will be frozen into a pose. This takes priority over anim_loop!
+///     pose_frame: None // An Option<u64> value that determines which frame the doodle will be posed at.
+///     }
+/// }
+/// ```
+/// However, since this is a Python module, you probably won't be implementing this struct like this in Rust! Here's how the same animation would look in Python:
+/// ```python
+/// from rustydoodle import *
+/// 
+/// exampleanimation = Animation(file="phase_5/models/char/TT_pets-speak.bam",
+///     anim_loop=True,
+///     loop_from=None,
+///     loop_to=None,
+///     loop_restart=None,
+///     pose=False,
+///     pose_frame=None)
+/// ```
+/// If using rustydoodle through adopt_a_doodle, the Pattern struct will be accessible through `adopt_a_doodle.Animation`.
 #[pyclass]
 #[derive(Clone)]
 pub struct Animation {
