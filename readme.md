@@ -30,7 +30,7 @@ With adopt_a_doodle, the creation of Doodle actors becomes much easier.
 Like with any other Panda3D Toontown project, you must first extract the Phase Files. You can do so with the following command, with [x] being replaced by the id of the phase file:
 
 ```ps
-multify.exe -cf phase_[x].mf phase_[x]
+multify.exe -xf phase_[x].mf
 ```
 
 With adopt_a_doodle, you will need phase_4, phase_5, and phase_5.5. Once these files are extracted, drop them into the same directory you want to have your Python files in. Your directory should look similar to this:
