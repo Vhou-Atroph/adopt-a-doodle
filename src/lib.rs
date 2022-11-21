@@ -211,7 +211,7 @@ impl Animation {
 
 /// Cinnamon, a really cool doodle!
 #[pyfunction]
-fn cinnamon() -> Doodle {
+pub fn cinnamon() -> Doodle {
     Doodle {
         color: (0.996094, 0.695312, 0.511719, 1.0),
         eye_color: (0.242188, 0.742188, 0.515625, 1.0),
