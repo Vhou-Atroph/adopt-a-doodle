@@ -22,7 +22,7 @@ fn rustydoodle(_: Python<'_>, m: &PyModule) -> PyResult<()> {
 /// 
 /// fn makeadoodle() -> Doodle {
 ///     Doodle {
-///         color: (0.546875, 0.28125, 0.75, 1.0), // The color field requires a struct containing four 32-bit floating point values of values 0 through 1. The first three values are for Red, Blue, and Green content. The fourth value is the Alpha value. In this example, the color is purple.
+///         color: (0.546875, 0.28125, 0.75, 1.0), // The color field requires a struct containing four 32-bit floating point values of values 0 through 1. The first three values are for Red, Green, and Blue content. The fourth value is the Alpha value. In this example, the color is purple.
 ///         eye_color: (0.242188, 0.742188, 0.515625, 1.0), // The same as color, but for the doodle's eyes. In this example, the color is sea green.
 ///         pattern: Pattern { // See the docs for the Pattern struct.
 ///             ears: Some(String::from("phase_4/maps/BeanCatEar3Yellow.jpg")),
